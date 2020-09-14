@@ -7,7 +7,7 @@ class CceProCataItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  final CceProdutoModel produto = Provider.of<CceProdutoModel>(context);
+    final CceProdutoModel produto = Provider.of<CceProdutoModel>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
@@ -26,12 +26,15 @@ class CceProCataItem extends StatelessWidget {
         footer: GridTileBar(
           backgroundColor: Colors.black87,
           //backgroundColor: Colors.black54,
-          leading: IconButton(
-            icon: Icon(produto.isFavorite ? Icons.favorite :  Icons.favorite_border),
-            onPressed: () {
-              produto.toogleFavorite();
-            },
-            color: Theme.of(context).accentColor,
+          // usando consumer para otimizar a renderizacao, la em cima se colocou o lister para falso
+          leading: Consumer<CceProdutoModel>(
+            builder: (ctx, produto, child) => IconButton(
+              icon: Icon(produto.isFavorite ? Icons.favorite :  Icons.favorite_border),
+              onPressed: () {
+                produto.toogleFavorite();
+              },
+              color: Theme.of(context).accentColor,
+            ),
           ),
           title: Text(
             produto.abrev,
