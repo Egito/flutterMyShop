@@ -8,7 +8,7 @@ class CceProCatGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final produtosProvider = Provider.of<CceProProviver>(context);
+    final produtosProvider = Provider.of<CceProProvider>(context);
     final nossosProdutos = produtosProvider.items;
 
     return GridView.builder(
