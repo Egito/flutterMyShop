@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/views/produtos_screen.dart';
+import 'package:flutterMyShop/views/cce_pro_cat.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.orange,
         fontFamily: 'Lato',
       ),
-      home: ProdutosViewScreen(),
+      home: CceProCatalogo(),
     );
   }
 }

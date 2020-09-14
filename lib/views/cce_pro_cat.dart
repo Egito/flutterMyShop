@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/data/dummy_data.dart';
-import 'package:flutterMyShop/models/produto_model.dart';
-import 'package:flutterMyShop/widgets/produto_detalhe.dart';
+import 'package:flutterMyShop/models/cce_pro_model.dart';
+import 'package:flutterMyShop/views/cce_pro_cat_item.dart';
 
-class ProdutosViewScreen extends StatelessWidget {
+import 'package:flutterMyShop/data/dummy_data.dart';
+
+class CceProCatalogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<CceProduto> nossosProdutos = DUMMY_PRODUTOS;
@@ -15,7 +16,7 @@ class ProdutosViewScreen extends StatelessWidget {
       body: GridView.builder(
         padding: EdgeInsets.all(10),
         itemCount: nossosProdutos.length,
-        itemBuilder: (ctx, i) => ProdutoDetalhe(nossosProdutos[i]),
+        itemBuilder: (ctx, i) => CceProCataItem(nossosProdutos[i]),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 3 / 2,
