@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class CceProdutoModel {
+class CceProdutoModel with ChangeNotifier {
   final String id;
   final String abrev;
   final String descr;
@@ -16,4 +16,9 @@ class CceProdutoModel {
     @required this.imagemUrl,
     this.isFavorite = false,
   });
+
+  void toogleFavorite() {
+    isFavorite = !isFavorite;
+    notifyListeners();
+  }
 }

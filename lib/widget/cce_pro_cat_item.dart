@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutterMyShop/models/cce_pro_model.dart';
 import 'package:flutterMyShop/rotas/cce_rotas.dart';
-import 'package:flutterMyShop/views/cce_pro_cat_item_det.dart';
+import 'package:provider/provider.dart';
 
 class CceProCataItem extends StatelessWidget {
-  final CceProdutoModel produto;
-
-  CceProCataItem(this.produto);
 
   @override
   Widget build(BuildContext context) {
+  final CceProdutoModel produto = Provider.of<CceProdutoModel>(context);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
@@ -29,8 +27,10 @@ class CceProCataItem extends StatelessWidget {
           backgroundColor: Colors.black87,
           //backgroundColor: Colors.black54,
           leading: IconButton(
-            icon: Icon(Icons.favorite),
-            onPressed: () {},
+            icon: Icon(produto.isFavorite ? Icons.favorite :  Icons.favorite_border),
+            onPressed: () {
+              produto.toogleFavorite();
+            },
             color: Theme.of(context).accentColor,
           ),
           title: Text(
