@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class CceProduto {
+class CceProdutoModel {
   final String id;
   final String abrev;
   final String descr;
@@ -8,7 +8,7 @@ class CceProduto {
   final String imagemUrl;
   bool isFavorite;
 
-  CceProduto({
+  CceProdutoModel({
     @required this.id,
     @required this.abrev,
     @required this.descr,

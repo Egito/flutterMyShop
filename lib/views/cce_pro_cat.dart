@@ -7,7 +7,7 @@ import 'package:flutterMyShop/data/dummy_data.dart';
 class CceProCatalogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final List<CceProduto> nossosProdutos = DUMMY_PRODUTOS;
+    final List<CceProdutoModel> nossosProdutos = DUMMY_PRODUTOS;
 
     return Scaffold(
       appBar: AppBar(
