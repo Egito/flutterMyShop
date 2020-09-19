@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutterMyShop/data/dummy_data.dart';
-import 'package:flutterMyShop/models/cce_pro_model.dart';
+import 'package:flutterMyShop/models/cce_produto_model.dart';
 
-class CceProProvider with ChangeNotifier {
+class CceProdutoProvider with ChangeNotifier {
   List<CceProdutoModel> _items = DUMMY_PRODUTOS;
 
   bool _mostraSoFavoritos = false;
 
   List<CceProdutoModel> get items {
-    if(_mostraSoFavoritos) {
+    if (_mostraSoFavoritos) {
       return _items.where((element) => element.isFavorite).toList();
     }
     return [..._items];

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/models/cce_pro_model.dart';
+import 'package:flutterMyShop/models/cce_produto_model.dart';
 
 class CceProDetalhe extends StatelessWidget {
   @override

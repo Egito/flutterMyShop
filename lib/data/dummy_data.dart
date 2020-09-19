@@ -1,4 +1,4 @@
-import '../models/cce_pro_model.dart';
+import '../models/cce_produto_model.dart';
 
 final DUMMY_PRODUTOS = [
   CceProdutoModel(

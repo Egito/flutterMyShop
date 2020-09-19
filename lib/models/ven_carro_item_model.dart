@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 
-class CceCarroItem {
+class VenCarroItemModel {
   final String id;
   final String descr;
   final int quant;
   final double preco;
 
-  CceCarroItem({
+  VenCarroItemModel({
     @required this.id,
     @required this.descr,
     @required this.quant,
