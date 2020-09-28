@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/data/dummy_data.dart';
+import 'package:flutterMyShop/servicos/dummy_data.dart';
 import 'package:flutterMyShop/models/cce_produto_model.dart';
 
 class CceProdutoProvider with ChangeNotifier {

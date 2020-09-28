@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/data/ven_carro_provider.dart';
-import 'package:flutterMyShop/widget/ven/ven_carro.dart';
+import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
+import 'package:flutterMyShop/paginas/ven/ven_carro.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutterMyShop/widget/cce/cce_pro_cat_item_det.dart';
-import 'package:flutterMyShop/data/cce_produto_provider.dart';
+import 'package:flutterMyShop/paginas/cce/cce_pro_cat_item_det.dart';
+import 'package:flutterMyShop/servicos/cce_produto_provider.dart';
 import 'package:flutterMyShop/rotas/rotas.dart';
-import 'package:flutterMyShop/widget/cce/cce_pro_cat.dart';
+import 'package:flutterMyShop/paginas/cce/cce_pro_cat.dart';
 
 void main() => runApp(MyApp());
 

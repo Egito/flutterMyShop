@@ -7,7 +7,7 @@ import 'package:flutterMyShop/models/ven_carro_item_model.dart';
 class VenCarroProvider with ChangeNotifier {
   Map<String, VenCarroItemModel> _itens = {};
 
-  Map<String, VenCarroItemModel> get item {
+  Map<String, VenCarroItemModel> get itens {
     return {..._itens};
   }
 
@@ -31,6 +31,7 @@ class VenCarroProvider with ChangeNotifier {
           descr: value.descr,
           quant: value.quant + 1,
           preco: value.preco,
+          produto: produto,
         );
       });
     } else {
@@ -41,9 +42,15 @@ class VenCarroProvider with ChangeNotifier {
                 descr: produto.descr,
                 quant: 1,
                 preco: produto.preco,
+                produto: produto,
               ));
     }
 
+    notifyListeners();
+  }
+
+  void removeItem(String id) {
+    _itens.remove(id);
     notifyListeners();
   }
 }

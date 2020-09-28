@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/data/ven_carro_provider.dart';
 import 'package:provider/provider.dart';
+
+import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
+import 'package:flutterMyShop/paginas/ven/ven_carro_item.dart';
 
 class VenCarro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final VenCarroProvider carro = Provider.of(context);
+    final carroItens = carro.itens.values.toList();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Carrinho'),
@@ -47,7 +51,8 @@ class VenCarro extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemCount: carro.itensCarro,
-              itemBuilder: (ctx, i) => Text('aha'),
+              itemBuilder: (ctx, i) => VenCarroItem(carroItens[i])
+              
             ),
           ),
         ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/data/ven_carro_provider.dart';
+import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
 import 'package:flutterMyShop/models/cce_produto_model.dart';
 import 'package:flutterMyShop/rotas/rotas.dart';
 import 'package:provider/provider.dart';
@@ -7,10 +7,13 @@ import 'package:provider/provider.dart';
 class CceProCataItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     final CceProdutoModel produto =
         Provider.of<CceProdutoModel>(context, listen: false);
+
     final VenCarroProvider carro =
         Provider.of<VenCarroProvider>(context, listen: false);
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
