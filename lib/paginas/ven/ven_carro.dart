@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterMyShop/servicos/fat_pedidos_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
@@ -30,7 +31,7 @@ class VenCarro extends StatelessWidget {
                   SizedBox(width: 10),
                   Chip(
                     label: Text(
-                      'R\$${carro.totalCarro}',
+                      'R\$ ${carro.totalCarro.toStringAsFixed(2)}',
                       style: TextStyle(
                         color: Theme.of(context).primaryTextTheme.title.color,
                       ),
@@ -39,7 +40,11 @@ class VenCarro extends StatelessWidget {
                   ),
                   Spacer(),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<FatPedidosProvider>(context, listen: false)
+                        .addPedido(carro);
+                      carro.limpaCarro();
+                    },
                     child: Text('Finalizar Compra'),
                     textColor: Theme.of(context).primaryColor,
                   )

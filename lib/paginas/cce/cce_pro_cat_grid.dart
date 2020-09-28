@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutterMyShop/servicos/cce_produto_provider.dart';
 import 'package:flutterMyShop/paginas/cce/cce_pro_cat_item.dart';
 import 'package:provider/provider.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutterMyShop/models/ven_carro_item_model.dart';
-import 'package:flutterMyShop/paginas/ven/ven_carro.dart';
+
 import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -49,7 +49,7 @@ class VenCarroItem extends StatelessWidget {
               ),
             ),
             title: Text(carroItem.descr),
-            subtitle: Text('Total R\$: ${carroItem.preco * carroItem.quant}'),
+            subtitle: Text('Total R\$: ${(carroItem.preco * carroItem.quant).toStringAsFixed(2)}'),
             trailing: Text('${carroItem.quant}x'),
           ),
         ),

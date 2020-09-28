@@ -53,4 +53,9 @@ class VenCarroProvider with ChangeNotifier {
     _itens.remove(id);
     notifyListeners();
   }
+
+  void limpaCarro() {
+    _itens = {};
+    notifyListeners();
+  }
 }

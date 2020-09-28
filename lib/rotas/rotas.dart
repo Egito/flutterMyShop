@@ -1,4 +1,6 @@
 class AppRoutes {
-  static const CCE_PRO_DETALHE = '/cce-produto-detalhe';
-  static const VEN_CAR_DETALHE = '/ven-carro-detalhe';
+  static const HOME = '/shopping';
+  static const FAT_PEDIDOS = '/fat-pedidos';
+  static const CCE_PRODUTO = '/cce-produto';
+  static const VEN_CARRINHO = '/ven-carrinho';
 }

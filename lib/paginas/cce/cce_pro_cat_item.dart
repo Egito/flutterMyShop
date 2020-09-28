@@ -20,7 +20,7 @@ class CceProCataItem extends StatelessWidget {
         child: GestureDetector(
           onTap: () {
             Navigator.of(context).pushNamed(
-              AppRoutes.CCE_PRO_DETALHE,
+              AppRoutes.CCE_PRODUTO,
               arguments: produto,
             );
           },

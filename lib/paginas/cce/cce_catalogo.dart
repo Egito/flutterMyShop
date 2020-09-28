@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterMyShop/paginas/acc/acc_menu.dart';
 import 'package:flutterMyShop/servicos/cce_produto_provider.dart';
 import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
 import 'package:flutterMyShop/rotas/rotas.dart';
@@ -39,7 +40,7 @@ class CceProCatalogo extends StatelessWidget {
             child: IconButton(
               icon: Icon(Icons.shopping_cart),
               onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.VEN_CAR_DETALHE);
+                Navigator.of(context).pushNamed(AppRoutes.VEN_CARRINHO);
               },
             ),
             builder: (_, carro, child) => VenCarroIcone(
@@ -50,6 +51,7 @@ class CceProCatalogo extends StatelessWidget {
         ],
       ),
       body: CceProCatGrid(),
+      drawer: AccMenu(),
     );
   }
 }
