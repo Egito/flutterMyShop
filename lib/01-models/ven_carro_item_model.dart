@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutterMyShop/models/cce_produto_model.dart';
+import 'package:flutterMyShop/01-models/cce_produto_model.dart';
 
 class VenCarroItemModel {
   final String id;

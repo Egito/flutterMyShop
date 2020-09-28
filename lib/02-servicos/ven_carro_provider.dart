@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutterMyShop/models/cce_produto_model.dart';
-import 'package:flutterMyShop/models/ven_carro_item_model.dart';
+import 'package:flutterMyShop/01-models/cce_produto_model.dart';
+import 'package:flutterMyShop/01-models/ven_carro_item_model.dart';
 
 class VenCarroProvider with ChangeNotifier {
   Map<String, VenCarroItemModel> _itens = {};
@@ -49,6 +49,27 @@ class VenCarroProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void subtraiItem(produto) {
+    if(!_itens.containsKey(produto.id)) {
+      return;
+    }
+
+    if(_itens[produto.id].quant == 1) {
+      removeItem(produto.id);
+    } else {
+      _itens.update(produto.id, (value) {
+        return VenCarroItemModel(
+          id: value.id,
+          descr: value.descr,
+          quant: value.quant - 1,
+          preco: value.preco,
+          produto: produto,
+        );
+      });
+    }
+
+    notifyListeners();
+  }
   void removeItem(String id) {
     _itens.remove(id);
     notifyListeners();

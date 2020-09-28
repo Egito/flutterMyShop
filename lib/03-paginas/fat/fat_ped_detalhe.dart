@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/models/fat_pedido_model.dart';
+import 'package:flutterMyShop/01-models/fat_pedido_model.dart';
 import 'package:intl/intl.dart';
 
 class FatPedDetalhe extends StatefulWidget {

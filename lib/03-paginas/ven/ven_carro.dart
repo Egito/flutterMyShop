@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/servicos/fat_pedidos_provider.dart';
+import 'package:flutterMyShop/02-servicos/fat_pedidos_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
-import 'package:flutterMyShop/paginas/ven/ven_carro_item.dart';
+import 'package:flutterMyShop/02-servicos/ven_carro_provider.dart';
+import 'package:flutterMyShop/03-paginas/ven/ven_carro_item.dart';
 
 class VenCarro extends StatelessWidget {
   @override

@@ -1,4 +1,4 @@
-import 'package:flutterMyShop/models/ven_carro_item_model.dart';
+import 'package:flutterMyShop/01-models/ven_carro_item_model.dart';
 
 class FatPedidoModel {
 

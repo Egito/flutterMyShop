@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/paginas/acc/acc_menu.dart';
-import 'package:flutterMyShop/servicos/cce_produto_provider.dart';
-import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
-import 'package:flutterMyShop/rotas/rotas.dart';
-import 'package:flutterMyShop/paginas/cce/cce_pro_cat_grid.dart';
-import 'package:flutterMyShop/paginas/ven/ven_carro_icone.dart';
 import 'package:provider/provider.dart';
 
-class CceProCatalogo extends StatelessWidget {
+import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
+import 'package:flutterMyShop/02-servicos/ven_carro_provider.dart';
+
+import 'package:flutterMyShop/03-paginas/cce/cce_cat_grid.dart';
+import 'package:flutterMyShop/03-paginas/ven/ven_carro_icone.dart';
+import 'package:flutterMyShop/03-paginas/acc/acc_menu.dart';
+
+import 'package:flutterMyShop/00-rotas/rotas.dart';
+
+class CceCatalogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CceProdutoProvider produto = Provider.of(context);
@@ -50,7 +53,7 @@ class CceProCatalogo extends StatelessWidget {
           ),
         ],
       ),
-      body: CceProCatGrid(),
+      body: CceCatalogoGrid(),
       drawer: AccMenu(),
     );
   }

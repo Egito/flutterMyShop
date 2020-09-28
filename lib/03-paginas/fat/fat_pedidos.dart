@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/models/fat_pedido_model.dart';
-import 'package:flutterMyShop/paginas/acc/acc_menu.dart';
-import 'package:flutterMyShop/paginas/fat/fat_ped_detalhe.dart';
-import 'package:flutterMyShop/servicos/fat_pedidos_provider.dart';
+import 'package:flutterMyShop/01-models/fat_pedido_model.dart';
+import 'package:flutterMyShop/03-paginas/acc/acc_menu.dart';
+import 'package:flutterMyShop/03-paginas/fat/fat_ped_detalhe.dart';
+import 'package:flutterMyShop/02-servicos/fat_pedidos_provider.dart';
 import 'package:provider/provider.dart';
 
 class FatPedidos extends StatelessWidget {

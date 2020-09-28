@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/servicos/dummy_data.dart';
-import 'package:flutterMyShop/models/cce_produto_model.dart';
+import 'package:flutterMyShop/02-servicos/dummy_data.dart';
+import 'package:flutterMyShop/01-models/cce_produto_model.dart';
 
 class CceProdutoProvider with ChangeNotifier {
   List<CceProdutoModel> _items = DUMMY_PRODUTOS;

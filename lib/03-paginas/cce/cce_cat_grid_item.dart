@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
-import 'package:flutterMyShop/models/cce_produto_model.dart';
-import 'package:flutterMyShop/rotas/rotas.dart';
 import 'package:provider/provider.dart';
 
-class CceProCataItem extends StatelessWidget {
+import 'package:flutterMyShop/02-servicos/ven_carro_provider.dart';
+import 'package:flutterMyShop/01-models/cce_produto_model.dart';
+import 'package:flutterMyShop/00-rotas/rotas.dart';
+
+class CceCatalogoGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
@@ -50,6 +51,19 @@ class CceProCataItem extends StatelessWidget {
           trailing: IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
+              Scaffold.of(context).hideCurrentSnackBar();
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Item colocado no carrinho!'),
+                  duration: Duration(seconds: 3),
+                  action: SnackBarAction(
+                    label: 'Desfazer', 
+                    onPressed: () {
+                      carro.subtraiItem(produto);
+                    },
+                  ),
+                ),
+              );
               carro.addItem(produto);
               //print(carro.itensCarro);
             },

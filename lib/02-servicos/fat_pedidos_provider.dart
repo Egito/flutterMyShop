@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/models/fat_pedido_model.dart';
-import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
+import 'package:flutterMyShop/01-models/fat_pedido_model.dart';
+import 'package:flutterMyShop/02-servicos/ven_carro_provider.dart';
 
 
 class FatPedidosProvider with ChangeNotifier {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutterMyShop/models/ven_carro_item_model.dart';
+import 'package:flutterMyShop/01-models/ven_carro_item_model.dart';
 
-import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
+import 'package:flutterMyShop/02-servicos/ven_carro_provider.dart';
 import 'package:provider/provider.dart';
 
 class VenCarroItem extends StatelessWidget {

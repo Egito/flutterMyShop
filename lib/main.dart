@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/servicos/fat_pedidos_provider.dart';
-import 'package:flutterMyShop/servicos/ven_carro_provider.dart';
-import 'package:flutterMyShop/servicos/cce_produto_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutterMyShop/paginas/cce/cce_pro_cat_item_det.dart';
-import 'package:flutterMyShop/paginas/cce/cce_catalogo.dart';
-import 'package:flutterMyShop/paginas/fat/fat_pedidos.dart';
-import 'package:flutterMyShop/paginas/ven/ven_carro.dart';
-import 'package:flutterMyShop/rotas/rotas.dart';
+import 'package:flutterMyShop/02-servicos/fat_pedidos_provider.dart';
+import 'package:flutterMyShop/02-servicos/ven_carro_provider.dart';
+import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
+
+import 'package:flutterMyShop/03-paginas/cce/cce_pro_detalhe.dart';
+import 'package:flutterMyShop/03-paginas/cce/cce_catalogo.dart';
+import 'package:flutterMyShop/03-paginas/fat/fat_pedidos.dart';
+import 'package:flutterMyShop/03-paginas/ven/ven_carro.dart';
+
+import 'package:flutterMyShop/00-rotas/rotas.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,9 +37,9 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.orange,
           fontFamily: 'Lato',
         ),
-        home: CceProCatalogo(),
+        home: CceCatalogo(),
         routes: {
-          AppRoutes.HOME: (ctx) => CceProCatalogo(),
+          AppRoutes.HOME: (ctx) => CceCatalogo(),
           AppRoutes.CCE_PRODUTO: (ctx) => CceProDetalhe(),
           AppRoutes.VEN_CARRINHO: (ctx) => VenCarro(),
           AppRoutes.FAT_PEDIDOS: (ctx) => FatPedidos(),
