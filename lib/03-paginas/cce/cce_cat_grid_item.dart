@@ -54,7 +54,10 @@ class CceCatalogoGridItem extends StatelessWidget {
               Scaffold.of(context).hideCurrentSnackBar();
               Scaffold.of(context).showSnackBar(
                 SnackBar(
-                  content: Text('Item colocado no carrinho!'),
+                  content: Text(
+                    'Item colocado no carrinho!',
+                    textAlign: TextAlign.center,
+                  ),
                   duration: Duration(seconds: 3),
                   action: SnackBarAction(
                     label: 'Desfazer', 

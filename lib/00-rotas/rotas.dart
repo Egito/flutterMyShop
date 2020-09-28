@@ -1,6 +1,7 @@
 class AppRoutes {
-  static const HOME = '/shopping';
+  static const CCE_CATALOGO = '/cce-catologo';
+  static const CCE_PRODUTO = '/cce-produtos';
+  static const CCE_PRO_DETALHE = '/cce-pro-detalhe';
   static const FAT_PEDIDOS = '/fat-pedidos';
-  static const CCE_PRODUTO = '/cce-produto';
   static const VEN_CARRINHO = '/ven-carrinho';
 }

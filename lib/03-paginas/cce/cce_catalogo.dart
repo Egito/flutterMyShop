@@ -16,6 +16,7 @@ class CceCatalogo extends StatelessWidget {
     final CceProdutoProvider produto = Provider.of(context);
 
     return Scaffold(
+      drawer: AccMenu(),
       appBar: AppBar(
         title: Text('Nossa Loja'),
         actions: <Widget>[
@@ -54,7 +55,6 @@ class CceCatalogo extends StatelessWidget {
         ],
       ),
       body: CceCatalogoGrid(),
-      drawer: AccMenu(),
     );
   }
 }

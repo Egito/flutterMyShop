@@ -13,11 +13,21 @@ class AccMenu extends StatelessWidget {
           ),
           Divider(),
           ListTile(
+            leading: Icon(Icons.pages_rounded),
+            title: Text('Produtos'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(
+                AppRoutes.CCE_PRODUTO,
+              );
+            },
+          ),
+          Divider(),
+          ListTile(
             leading: Icon(Icons.shop_rounded),
             title: Text('Catalogo'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(
-                AppRoutes.HOME,
+                AppRoutes.CCE_CATALOGO,
               );
             },
           ),

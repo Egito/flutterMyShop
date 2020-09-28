@@ -31,6 +31,28 @@ class VenCarroItem extends StatelessWidget {
         ),
       ),
       direction: DismissDirection.endToStart,
+      confirmDismiss: (_) {
+        return showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text(
+              'Confirma a remoção?',
+              textAlign: TextAlign.center,
+            ),
+            //content: Text('Opção'),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {Navigator.of(ctx).pop(false);},
+                child: Text('Nao'),
+              ),
+              FlatButton(
+                onPressed: () {Navigator.of(ctx).pop(true);},
+                child: Text('Sim'),
+              ),
+            ],
+          ),
+        );
+      },
       onDismissed: (_) {
         Provider.of<VenCarroProvider>(context, listen: false).removeItem(carroItem.produto.id);
       },
