@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/03-paginas/cce/cce_produtos.dart';
+import 'package:flutterMyShop/03-paginas/cce/cce_produto/cce_produtos.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutterMyShop/02-servicos/fat_pedidos_provider.dart';
 import 'package:flutterMyShop/02-servicos/ven_carro_provider.dart';
 import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
 
-import 'package:flutterMyShop/03-paginas/cce/cce_pro_detalhe.dart';
-import 'package:flutterMyShop/03-paginas/cce/cce_catalogo.dart';
+import 'package:flutterMyShop/03-paginas/cce/cce_catalogo/cce_pro_detalhe.dart';
+import 'package:flutterMyShop/03-paginas/cce/cce_catalogo/cce_catalogo.dart';
 import 'package:flutterMyShop/03-paginas/fat/fat_pedidos.dart';
 import 'package:flutterMyShop/03-paginas/ven/ven_carro.dart';
 

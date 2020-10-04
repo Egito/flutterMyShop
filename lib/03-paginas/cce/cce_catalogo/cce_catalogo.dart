@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
 import 'package:flutterMyShop/02-servicos/ven_carro_provider.dart';
 
-import 'package:flutterMyShop/03-paginas/cce/cce_cat_grid.dart';
+import 'package:flutterMyShop/03-paginas/cce/cce_catalogo/cce_cat_grid.dart';
 import 'package:flutterMyShop/03-paginas/ven/ven_carro_icone.dart';
 import 'package:flutterMyShop/03-paginas/acc/acc_menu.dart';
 

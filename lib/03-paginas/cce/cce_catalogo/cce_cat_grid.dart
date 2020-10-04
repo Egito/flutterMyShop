@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
-import 'package:flutterMyShop/03-paginas/cce/cce_cat_grid_item.dart';
+import 'package:flutterMyShop/03-paginas/cce/cce_catalogo/cce_cat_grid_item.dart';
 
 class CceCatalogoGrid extends StatelessWidget {
   @override

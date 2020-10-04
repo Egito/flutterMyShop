@@ -8,7 +8,6 @@ import 'package:flutterMyShop/00-rotas/rotas.dart';
 class CceCatalogoGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     final CceProdutoModel produto =
         Provider.of<CceProdutoModel>(context, listen: false);
 
@@ -21,7 +20,7 @@ class CceCatalogoGridItem extends StatelessWidget {
         child: GestureDetector(
           onTap: () {
             Navigator.of(context).pushNamed(
-              AppRoutes.CCE_PRODUTO,
+              AppRoutes.CCE_PRO_DETALHE,
               arguments: produto,
             );
           },
@@ -60,7 +59,7 @@ class CceCatalogoGridItem extends StatelessWidget {
                   ),
                   duration: Duration(seconds: 3),
                   action: SnackBarAction(
-                    label: 'Desfazer', 
+                    label: 'Desfazer',
                     onPressed: () {
                       carro.subtraiItem(produto);
                     },

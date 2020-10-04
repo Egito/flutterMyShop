@@ -7,6 +7,7 @@ class CceProDetalhe extends StatelessWidget {
   Widget build(BuildContext context) {
     final CceProdutoModel produto =
         ModalRoute.of(context).settings.arguments as CceProdutoModel;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(produto.abrev),
@@ -30,7 +31,9 @@ class CceProDetalhe extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
@@ -40,7 +43,8 @@ class CceProDetalhe extends StatelessWidget {
               ),
             ),
           ],
-        ),),
+        ),
+      ),
     );
   }
 }
