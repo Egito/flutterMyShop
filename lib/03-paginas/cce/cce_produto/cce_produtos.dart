@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMyShop/03-paginas/cce/cce_produto/cce_pro_item.dart';
 import 'package:provider/provider.dart';
-
 import 'package:flutterMyShop/00-rotas/rotas.dart';
-import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
-import 'package:flutterMyShop/01-models/cce_produto_model.dart';
 
+import 'package:flutterMyShop/03-paginas/cce/cce_produto/cce_pro_lista.dart';
+import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
 import 'package:flutterMyShop/03-paginas/acc/acc_menu.dart';
 
 class CceProdutos extends StatelessWidget {
@@ -33,7 +31,9 @@ class CceProdutos extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(AppRoutes.CCE_PRO_EDICAO);
+        },
         child: null,
       ),
     );

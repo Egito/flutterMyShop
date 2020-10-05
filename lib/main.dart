@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterMyShop/03-paginas/cce/cce_produto/cce_pro_edit.dart';
 import 'package:flutterMyShop/03-paginas/cce/cce_produto/cce_produtos.dart';
 import 'package:provider/provider.dart';
 
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
           AppRoutes.CCE_CATALOGO: (ctx) => CceCatalogo(),
           AppRoutes.CCE_PRODUTO: (ctx) => CceProdutos(),
           AppRoutes.CCE_PRO_DETALHE: (ctx) => CceProDetalhe(),
+          AppRoutes.CCE_PRO_EDICAO: (ctx) => CceProdutoEdit(),
           AppRoutes.VEN_CARRINHO: (ctx) => VenCarro(),
           AppRoutes.FAT_PEDIDOS: (ctx) => FatPedidos(),
         },

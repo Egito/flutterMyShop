@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterMyShop/00-rotas/rotas.dart';
 import 'package:flutterMyShop/01-models/cce_produto_model.dart';
+import 'package:flutterMyShop/03-paginas/cce/cce_produto/cce_pro_edit.dart';
 
 class CceProdutoItem extends StatelessWidget {
   final CceProdutoModel produto;
@@ -22,7 +24,9 @@ class CceProdutoItem extends StatelessWidget {
             IconButton(
               color: Theme.of(context).primaryColor,
               icon: Icon(Icons.edit),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.CCE_PRO_EDICAO);
+              },
             ),
             IconButton(
               icon: Icon(Icons.delete),
