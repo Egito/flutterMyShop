@@ -24,7 +24,10 @@ class CceProdutoItem extends StatelessWidget {
               color: Theme.of(context).primaryColor,
               icon: Icon(Icons.edit),
               onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.CCE_PRO_EDICAO);
+                Navigator.of(context).pushNamed(
+                  AppRoutes.CCE_PRO_EDICAO,
+                  arguments: produto,
+                );
               },
             ),
             IconButton(

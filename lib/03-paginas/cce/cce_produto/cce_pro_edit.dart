@@ -24,6 +24,25 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
     _imgFocusNode.addListener(_updateImagem);
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    if (_formDados.isEmpty) {
+      final produto =
+          ModalRoute.of(context).settings.arguments as CceProdutoModel;
+      if (produto != null) {
+        _formDados['id'] = produto.id;
+        _formDados['abrev'] = produto.abrev;
+        _formDados['descr'] = produto.descr;
+        _formDados['preco'] = produto.preco;
+        _formDados['imagemUrl'] = produto.imagemUrl;
+
+        _imgControler.text = produto.imagemUrl;
+      }
+    }
+  }
+
   void _updateImagem() {
     if (urlValida(_imgControler.text)) {
       setState(() {});
@@ -56,14 +75,18 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
     _form.currentState.save();
 
     final produto = CceProdutoModel(
+      id: _formDados['id'],
       abrev: _formDados['abrev'],
       descr: _formDados['descr'],
       preco: _formDados['preco'],
       imagemUrl: _formDados['imagemUrl'],
     );
 
-    Provider.of<CceProdutoProvider>(context, listen: false)
-        .addCceProduto(produto);
+    final chamada = Provider.of<CceProdutoProvider>(context, listen: false);
+    if (_formDados['id'] == null)
+      chamada.addCceProduto(produto);
+    else
+      chamada.updateCceProduto(produto);
     Navigator.of(context).pop();
   }
 
@@ -88,6 +111,7 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
           child: ListView(
             children: [
               TextFormField(
+                initialValue: _formDados['abrev'],
                 decoration: InputDecoration(labelText: 'Titulo'),
                 textInputAction: TextInputAction.next,
                 onFieldSubmitted: (_) {
@@ -102,6 +126,9 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                 },
               ),
               TextFormField(
+                initialValue: _formDados['preco'] != null
+                    ? _formDados['preco'].toString()
+                    : '',
                 decoration: InputDecoration(labelText: 'Preço'),
                 textInputAction: TextInputAction.next,
                 focusNode: _prFocusNode,
@@ -121,6 +148,7 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                 },
               ),
               TextFormField(
+                initialValue: _formDados['descr'],
                 decoration: InputDecoration(labelText: 'Descrição'),
                 maxLines: 3,
                 focusNode: _dsFocusNode,

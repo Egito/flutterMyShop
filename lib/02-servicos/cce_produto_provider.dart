@@ -40,4 +40,16 @@ class CceProdutoProvider with ChangeNotifier {
     ));
     notifyListeners();
   }
+
+  bool updateCceProduto(CceProdutoModel produto) {
+    if (produto != null && produto.id != null) return false;
+
+    final i = _items.indexWhere((element) => element.id == produto.id);
+
+    if (i < 1) return false;
+
+    _items[i] = produto;
+    notifyListeners();
+    return true;
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:flutterMyShop/00-rotas/rotas.dart';
 
 import 'package:flutterMyShop/03-paginas/cce/cce_produto/cce_pro_lista.dart';
@@ -9,8 +10,7 @@ import 'package:flutterMyShop/03-paginas/acc/acc_menu.dart';
 class CceProdutos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final produtosProv =
-        Provider.of<CceProdutoProvider>(context, listen: false);
+    final produtosProv = Provider.of<CceProdutoProvider>(context);
     final produtos = produtosProv.items;
 
     return Scaffold(
