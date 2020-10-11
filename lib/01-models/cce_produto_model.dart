@@ -9,7 +9,7 @@ class CceProdutoModel with ChangeNotifier {
   bool isFavorite;
 
   CceProdutoModel({
-    @required this.id,
+    this.id,
     @required this.abrev,
     @required this.descr,
     @required this.preco,

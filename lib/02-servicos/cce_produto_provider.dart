@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutterMyShop/02-servicos/dummy_data.dart';
 import 'package:flutterMyShop/01-models/cce_produto_model.dart';
@@ -29,7 +31,13 @@ class CceProdutoProvider with ChangeNotifier {
   }
 
   void addCceProduto(CceProdutoModel produto) {
-    _items.add(produto);
+    _items.add(CceProdutoModel(
+      id: Random().nextDouble().toString(),
+      abrev: produto.abrev,
+      descr: produto.descr,
+      preco: produto.preco,
+      imagemUrl: produto.imagemUrl,
+    ));
     notifyListeners();
   }
 }

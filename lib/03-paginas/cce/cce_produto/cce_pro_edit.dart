@@ -1,8 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterMyShop/01-models/cce_produto_model.dart';
+import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
+import 'package:provider/provider.dart';
 
 class CceProdutoEdit extends StatefulWidget {
   @override
@@ -25,17 +25,17 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
   }
 
   void _updateImagem() {
-    if(urlValida(_imgControler.text)) {
+    if (urlValida(_imgControler.text)) {
       setState(() {});
     }
   }
 
   bool urlValida(String url) {
     bool protValido = url.toLowerCase().startsWith('http://') ||
-                      url.toLowerCase().startsWith('https://');
-    bool extValida =  url.toLowerCase().endsWith('.png') ||
-                      url.toLowerCase().endsWith('.jpg') ||
-                      url.toLowerCase().endsWith('.jpeg');
+        url.toLowerCase().startsWith('https://');
+    bool extValida = url.toLowerCase().endsWith('.png') ||
+        url.toLowerCase().endsWith('.jpg') ||
+        url.toLowerCase().endsWith('.jpeg');
     return protValido && extValida;
   }
 
@@ -51,20 +51,20 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
   void _saveForm() {
     bool estaValido = _form.currentState.validate();
 
-    if(!estaValido) return;
+    if (!estaValido) return;
+
+    _form.currentState.save();
 
     final produto = CceProdutoModel(
-      id: Random().nextDouble().toString(),
       abrev: _formDados['abrev'],
       descr: _formDados['descr'],
       preco: _formDados['preco'],
       imagemUrl: _formDados['imagemUrl'],
     );
 
-    _form.currentState.save();
-
-    print(produto.descr);
-    print(produto.id);
+    Provider.of<CceProdutoProvider>(context, listen: false)
+        .addCceProduto(produto);
+    Navigator.of(context).pop();
   }
 
   @override
@@ -73,9 +73,12 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
       appBar: AppBar(
         title: Text('Manutenção de Produto'),
         actions: [
-          IconButton(icon: Icon(Icons.save), onPressed: () {
-            _saveForm();
-            },),
+          IconButton(
+            icon: Icon(Icons.save),
+            onPressed: () {
+              _saveForm();
+            },
+          ),
         ],
       ),
       body: Padding(
@@ -92,7 +95,7 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                 },
                 onSaved: (value) => _formDados['abrev'] = value,
                 validator: (value) {
-                  if(value.trim().isEmpty) {
+                  if (value.trim().isEmpty) {
                     return 'Informe uma abreviatura valida!';
                   }
                   return null;
@@ -110,7 +113,8 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                 },
                 onSaved: (value) => _formDados['preco'] = double.parse(value),
                 validator: (value) {
-                  if(double.parse('0' + value.trim()) <= 0.00) {
+                  var prEco = double.tryParse(value);
+                  if (value.trim().isEmpty || prEco == null || prEco <= 0.00) {
                     return 'Informe um valor valido para o produto!';
                   }
                   return null;
@@ -126,7 +130,7 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                 },
                 onSaved: (value) => _formDados['descr'] = value,
                 validator: (value) {
-                  if(value.trim().isEmpty) {
+                  if (value.trim().isEmpty) {
                     return 'Informe uma descrição para o produto!';
                   }
                   return null;
@@ -147,10 +151,10 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                       },
                       onSaved: (value) => _formDados['imagemUrl'] = value,
                       validator: (value) {
-                        if(value.trim().isEmpty) {
+                        if (value.trim().isEmpty) {
                           return 'Informe um caminho para a imagem valido!';
                         }
-                        if(!urlValida(value.trim())) {
+                        if (!urlValida(value.trim())) {
                           return 'Informe http(s) e um tipo valido (png,jpg,jpeg)!';
                         }
                         return null;
