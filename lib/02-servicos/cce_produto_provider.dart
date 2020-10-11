@@ -42,13 +42,25 @@ class CceProdutoProvider with ChangeNotifier {
   }
 
   bool updateCceProduto(CceProdutoModel produto) {
-    if (produto != null && produto.id != null) return false;
+    if (produto == null || produto.id == null) return false;
 
     final i = _items.indexWhere((element) => element.id == produto.id);
 
-    if (i < 1) return false;
+    if (i < 0) return false;
 
     _items[i] = produto;
+    notifyListeners();
+    return true;
+  }
+
+  bool deleteCceProduto(CceProdutoModel produto) {
+    if (produto == null || produto.id == null) return false;
+
+    final i = _items.indexWhere((element) => element.id == produto.id);
+
+    if (i < 0) return false;
+
+    _items.removeWhere((element) => element.id == produto.id);
     notifyListeners();
     return true;
   }

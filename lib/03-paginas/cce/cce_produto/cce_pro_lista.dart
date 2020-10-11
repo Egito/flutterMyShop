@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterMyShop/00-rotas/rotas.dart';
 import 'package:flutterMyShop/01-models/cce_produto_model.dart';
+import 'package:flutterMyShop/02-servicos/cce_produto_provider.dart';
+import 'package:provider/provider.dart';
 
 class CceProdutoItem extends StatelessWidget {
   final CceProdutoModel produto;
@@ -19,7 +21,7 @@ class CceProdutoItem extends StatelessWidget {
       trailing: Container(
         width: 100,
         child: Row(
-          children: <Widget>[
+          children: [
             IconButton(
               color: Theme.of(context).primaryColor,
               icon: Icon(Icons.edit),
@@ -33,7 +35,28 @@ class CceProdutoItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.delete),
               color: Theme.of(context).errorColor,
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    title: Text('Exclusão do Produto'),
+                    content: Text('Tem certeza?'),
+                    actions: [
+                      FlatButton(
+                          onPressed: () => Navigator.of(context).pop(false),
+                          child: Text('Não')),
+                      FlatButton(
+                          onPressed: () => Navigator.of(context).pop(true),
+                          child: Text('Sim')),
+                    ],
+                  ),
+                ).then((value) {
+                  if (value) {
+                    Provider.of<CceProdutoProvider>(context, listen: false)
+                        .deleteCceProduto(produto);
+                  }
+                });
+              },
             ),
           ],
         ),
