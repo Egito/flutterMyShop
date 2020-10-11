@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutterMyShop/01-models/cce_produto_model.dart';
 
 class CceProdutoEdit extends StatefulWidget {
   @override
@@ -11,17 +14,29 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
   final _dsFocusNode = FocusNode();
   final _imgFocusNode = FocusNode();
   final _imgControler = TextEditingController();
+  final _form = GlobalKey<FormState>();
+
+  final _formDados = Map<String, Object>();
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _imgFocusNode.addListener(_updateImagem);
   }
 
   void _updateImagem() {
-    setState(() {});
-    print('mudou');
+    if(urlValida(_imgControler.text)) {
+      setState(() {});
+    }
+  }
+
+  bool urlValida(String url) {
+    bool protValido = url.toLowerCase().startsWith('http://') ||
+                      url.toLowerCase().startsWith('https://');
+    bool extValida =  url.toLowerCase().endsWith('.png') ||
+                      url.toLowerCase().endsWith('.jpg') ||
+                      url.toLowerCase().endsWith('.jpeg');
+    return protValido && extValida;
   }
 
   @override
@@ -33,17 +48,40 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
     _imgFocusNode.dispose();
   }
 
+  void _saveForm() {
+    bool estaValido = _form.currentState.validate();
+
+    if(!estaValido) return;
+
+    final produto = CceProdutoModel(
+      id: Random().nextDouble().toString(),
+      abrev: _formDados['abrev'],
+      descr: _formDados['descr'],
+      preco: _formDados['preco'],
+      imagemUrl: _formDados['imagemUrl'],
+    );
+
+    _form.currentState.save();
+
+    print(produto.descr);
+    print(produto.id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Manutenção de Produto',
-        ),
+        title: Text('Manutenção de Produto'),
+        actions: [
+          IconButton(icon: Icon(Icons.save), onPressed: () {
+            _saveForm();
+            },),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Form(
+          key: _form,
           child: ListView(
             children: [
               TextFormField(
@@ -51,6 +89,13 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                 textInputAction: TextInputAction.next,
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_prFocusNode);
+                },
+                onSaved: (value) => _formDados['abrev'] = value,
+                validator: (value) {
+                  if(value.trim().isEmpty) {
+                    return 'Informe uma abreviatura valida!';
+                  }
+                  return null;
                 },
               ),
               TextFormField(
@@ -63,6 +108,13 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_dsFocusNode);
                 },
+                onSaved: (value) => _formDados['preco'] = double.parse(value),
+                validator: (value) {
+                  if(double.parse('0' + value.trim()) <= 0.00) {
+                    return 'Informe um valor valido para o produto!';
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Descrição'),
@@ -71,6 +123,13 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                 keyboardType: TextInputType.multiline,
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_dsFocusNode);
+                },
+                onSaved: (value) => _formDados['descr'] = value,
+                validator: (value) {
+                  if(value.trim().isEmpty) {
+                    return 'Informe uma descrição para o produto!';
+                  }
+                  return null;
                 },
               ),
               Row(
@@ -82,6 +141,20 @@ class _CceProdutoEditState extends State<CceProdutoEdit> {
                       keyboardType: TextInputType.url,
                       textInputAction: TextInputAction.done,
                       focusNode: _imgFocusNode,
+                      controller: _imgControler,
+                      onFieldSubmitted: (_) {
+                        _saveForm();
+                      },
+                      onSaved: (value) => _formDados['imagemUrl'] = value,
+                      validator: (value) {
+                        if(value.trim().isEmpty) {
+                          return 'Informe um caminho para a imagem valido!';
+                        }
+                        if(!urlValida(value.trim())) {
+                          return 'Informe http(s) e um tipo valido (png,jpg,jpeg)!';
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   Container(

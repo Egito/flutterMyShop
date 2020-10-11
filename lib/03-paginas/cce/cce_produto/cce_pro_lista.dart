@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterMyShop/00-rotas/rotas.dart';
 import 'package:flutterMyShop/01-models/cce_produto_model.dart';
-import 'package:flutterMyShop/03-paginas/cce/cce_produto/cce_pro_edit.dart';
 
 class CceProdutoItem extends StatelessWidget {
   final CceProdutoModel produto;
