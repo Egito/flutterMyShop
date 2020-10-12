@@ -33,7 +33,8 @@ class VenCarro extends StatelessWidget {
                     label: Text(
                       'R\$ ${carro.totalCarro.toStringAsFixed(2)}',
                       style: TextStyle(
-                        color: Theme.of(context).primaryTextTheme.title.color,
+                        color:
+                            Theme.of(context).primaryTextTheme.bodyText1.color,
                       ),
                     ),
                     backgroundColor: Theme.of(context).primaryColor,
@@ -42,7 +43,7 @@ class VenCarro extends StatelessWidget {
                   FlatButton(
                     onPressed: () {
                       Provider.of<FatPedidosProvider>(context, listen: false)
-                        .addPedido(carro);
+                          .addPedido(carro);
                       carro.limpaCarro();
                     },
                     child: Text('Finalizar Compra'),
@@ -55,10 +56,8 @@ class VenCarro extends StatelessWidget {
           SizedBox(height: 10),
           Expanded(
             child: ListView.builder(
-              itemCount: carro.itensCarro,
-              itemBuilder: (ctx, i) => VenCarroItem(carroItens[i])
-              
-            ),
+                itemCount: carro.itensCarro,
+                itemBuilder: (ctx, i) => VenCarroItem(carroItens[i])),
           ),
         ],
       ),

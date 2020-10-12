@@ -1,6 +1,6 @@
 import '../01-models/cce_produto_model.dart';
 
-final DUMMY_PRODUTOS = [
+final dummyProdutos = [
   CceProdutoModel(
     id: 'p1',
     abrev: 'Red Shirt',

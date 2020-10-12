@@ -7,7 +7,7 @@ import 'package:flutterMyShop/01-models/cce_produto_model.dart';
 class CceProdutoProvider with ChangeNotifier {
   bool _mostraSoFavoritos = false;
 
-  List<CceProdutoModel> _items = DUMMY_PRODUTOS;
+  List<CceProdutoModel> _items = dummyProdutos;
 
   List<CceProdutoModel> get items {
     if (_mostraSoFavoritos) {
