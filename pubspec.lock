@@ -108,7 +108,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.5"
+    version: "4.3.2+2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -172,4 +172,4 @@ packages:
     version: "2.1.0-nullsafety.3"
 sdks:
   dart: ">=2.10.0-110 <=2.11.0-186.0.dev"
-  flutter: ">=1.12.1"
+  flutter: ">=1.16.0"
